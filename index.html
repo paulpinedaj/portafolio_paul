@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Pineda - Arte y Código</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-color: #0d1117;
+--border-color: #30363d;
+--text-primary: #e6edf3;
+--text-secondary: #8b949e;
+--accent-color: #6d28d9; /* Morado electrizante */
+--accent-gradient: linear-gradient(135deg, #6d28d9, #2563eb);
+--tag-bg: #1f2937;
+--success-color: #238636;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Inter', sans-serif;
+}
+
+body {
+background-color: var(--bg-color);
+color: var(--text-primary);
+line-height: 1.5;
+padding: 16px;
+max-width: 100%;
+margin: 0 auto;
+}
+
+.container {
+max-width: 768px;
+margin: 0 auto;
+}
+
+/* Banner Electrizante */
+.creative-banner {
+height: 140px; /* Reducido para móvil */
+background: var(--accent-gradient);
+border-radius: 12px;
+margin-bottom: 20px; /* Espacio inferior reducido */
+position: relative;
+overflow: hidden;
+}
+
+.creative-banner::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: repeating-linear-gradient(
+45deg,
+rgba(255, 255, 255, 0.05),
+rgba(255, 255, 255, 0.05) 8px, /* Ajustado para móvil */
+transparent 8px,
+transparent 16px /* Ajustado para móvil */
+);
+}
+
+.banner-content {
+position: absolute;
+bottom: 12px; /* Ajustado para móvil */
+left: 16px; /* Ajustado para móvil */
+z-index: 2;
+}
+
+.banner-title {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 24px; /* Reducido para móvil */
+font-weight: 700;
+margin-bottom: 6px; /* Espacio inferior reducido */
+text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-subtitle {
+font-size: 14px; /* Reducido para móvil */
+opacity: 0.9;
+}
+
+/* Cabecera Impactante */
+.header {
+display: flex;
+align-items: center;
+margin-bottom: 20px; /* Espacio inferior reducido */
+padding-bottom: 12px; /* Relleno inferior reducido */
+border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+width: 32px; /* Reducido para móvil */
+height: 32px; /* Reducido para móvil */
+margin-right: 10px; /* Margen derecho reducido */
+filter: drop-shadow(0 0 6px var(--accent-color));
+}
+
+.header-title {
+font-size: 16px; /* Reducido para móvil */
+font-weight: 600;
+font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Perfil Dinámico */
+.profile {
+margin-bottom: 20px; /* Espacio inferior reducido */
+}
+
+.profile-main {
+display: flex;
+margin-bottom: 12px; /* Espacio inferior reducido */
+align-items: center; /* Centrar verticalmente en móvil */
+}
+
+.avatar {
+width: 80px; /* Reducido para móvil */
+height: 80px; /* Reducido para móvil */
+border-radius: 50%;
+border: 3px solid transparent;
+background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
+var(--accent-gradient) border-box;
+margin-right: 16px; /* Margen derecho reducido */
+box-shadow: 0 0 10px rgba(109, 40, 217, 0.3);
+}
+
+.profile-info h1 {
+font-size: 20px; /* Reducido para móvil */
+font-weight: 600;
+margin-bottom: 2px; /* Espacio inferior reducido */
+font-family: 'Space Grotesk', sans-serif;
+}
+
+.profile-info p {
+color: var(--text-secondary);
+font-size: 12px; /* Reducido para móvil */
+}
+
+.highlight {
+color: var(--accent-color);
+font-weight: 500;
+}
+
+.profile-bio {
+color: var(--text-primary);
+font-size: 14px; /* Reducido para móvil */
+margin-bottom: 14px; /* Espacio inferior reducido */
+line-height: 1.4;
+max-width: 100%; /* Ancho completo en móvil */
+}
+
+.profile-contact {
+display: flex;
+flex-wrap: wrap;
+gap: 12px; /* Espacio entre elementos reducido */
+margin-top: 12px; /* Margen superior reducido */
+}
+
+.contact-item {
+display: flex;
+align-items: center;
+font-size: 12px; /* Reducido para móvil */
+color: var(--text-secondary);
+transition: color 0.2s ease;
+}
+
+.contact-item:hover {
+color: var(--accent-color);
+}
+
+.contact-item svg {
+width: 16px; /* Reducido para móvil */
+height: 16px; /* Reducido para móvil */
+margin-right: 6px; /* Margen derecho reducido */
+fill: currentColor;
+}
+
+/* Pestañas de Navegación (Ahora abajo) */
+.tabs {
+display: flex;
+justify-content: space-around; /* Espacio uniforme en móvil */
+background-color: var(--border-color);
+border-radius: 8px;
+overflow: hidden;
+margin-bottom: 20px; /* Espacio inferior reducido */
+}
+
+.tab {
+flex: 1;
+padding: 10px; /* Relleno reducido */
+text-align: center;
+background-color: transparent;
+border: none;
+color: var(--text-secondary);
+font-size: 12px; /* Reducido para móvil */
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.tab.active {
+background-color: var(--tag-bg);
+color: var(--text-primary);
+font-weight: 600;
+position: relative;
+}
+
+.tab.active::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 20%; /* Ajustado para centrar visualmente en pestañas más pequeñas */
+width: 60%; /* Ajustado para centrar visualmente en pestañas más pequeñas */
+height: 2px; /* Grosor reducido */
+background: var(--accent-gradient);
+border-radius: 2px 2px 0 0; /* Radio reducido */
+}
+
+
+
+/* Estilos para la lista de proyectos */
+.portfolio-list {
+display: flex;
+flex-direction: column; /* Apilar los elementos verticalmente */
+gap: 20px; /* Espacio entre cada elemento de la lista */
+margin-top: 24px;
+}
+
+.portfolio-list-item {
+display: flex;
+flex-direction: column; /* Apilar imagen y texto en móvil */
+border-radius: 8px;
+overflow: hidden;
+background-color: #161b22;
+border: 1px solid #30363d;
+transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+.portfolio-list-item {
+flex-direction: row; /* Imagen y texto lado a lado en escritorio */
+align-items: center; /* Alinear verticalmente en escritorio */
+}
+}
+
+.portfolio-list-item:hover {
+transform: translateY(-4px);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-list-item img {
+width: 100%;
+height: auto;
+aspect-ratio: 4 / 3; /* Mantener la proporción */
+object-fit: cover;
+}
+
+@media (min-width: 768px) {
+.portfolio-list-item img {
+width: 40%; /* Ancho de la imagen en escritorio */
+height: auto;
+}
+}
+
+.portfolio-list-content {
+padding: 16px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+flex-grow: 1; /* Ocupar el espacio restante */
+}
+
+.portfolio-list-title {
+font-size: 16px;
+font-weight: 600;
+font-family: 'Space Grotesk', sans-serif;
+color: var(--text-primary);
+}
+
+.portfolio-list-description {
+font-size: 14px;
+color: var(--text-secondary);
+line-height: 1.4;
+}
+
+.portfolio-list-tags {
+display: flex;
+gap: 8px;
+font-size: 12px;
+color: var(--text-secondary);
+}
+
+.portfolio-list-arrow {
+display: flex;
+align-items: center;
+justify-content: center;
+padding-right: 16px;
+color: var(--accent-color);
+font-size: 20px;
+opacity: 0;
+transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+.portfolio-list-item:hover .portfolio-list-arrow {
+opacity: 1;
+transform: translateX(5px);
+}
+}
+
+
+
+/* Sección de Servicios Creativos */
+.services-section {
+margin-bottom: 28px; /* Espacio inferior reducido */
+}
+
+.section-title {
+font-size: 16px; /* Reducido para móvil */
+font-weight: 600;
+margin-bottom: 12px; /* Espacio inferior reducido */
+padding-bottom: 6px; /* Relleno inferior reducido */
+border-bottom: 1px solid var(--border-color);
+font-family: 'Space Grotesk', sans-serif;
+display: flex;
+align-items: center;
+}
+
+.section-title svg {
+width: 18px; /* Reducido para móvil */
+height: 18px; /* Reducido para móvil */
+margin-right: 6px; /* Margen derecho reducido */
+fill: var(--accent-color);
+}
+
+.skill-boxes-dark {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px; /* Espacio entre cajas reducido */
+padding: 1rem 0;
+width: 100%;
+margin: 0 auto;
+}
+
+.skill-card {
+background-color: #161b22;
+color: #c9d1d9;
+border: 1px solid #30363d;
+border-radius: 10px; /* Radio reducido */
+width: calc(50% - 5px); /* Ajuste para el espacio */
+padding: 0.8rem; /* Relleno reducido */
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+transition: all 0.3s ease;
+font-size: 0.7rem; /* Tamaño de fuente reducido */
+height: 120px; /* Altura reducida */
+position: relative;
+overflow: hidden;
+}
+
+@media (min-width: 768px) {
+.skill-card {
+width: calc(33.33% - 7px);
+}
+}
+
+.skill-card:hover {
+transform: translateY(-3px); /* Menos elevación en móvil */
+border-color: var(--accent-color);
+box-shadow: 0 4px 8px rgba(109, 40, 217, 0.15); /* Sombra reducida */
+}
+
+.skill-card::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 2px;
+background: var(--accent-gradient);
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.3s ease;
+}
+
+.skill-card:hover::after {
+transform: scaleX(1);
+}
+
+.skill-card h3 {
+font-size: 0.9rem; /* Tamaño de fuente reducido */
+margin: 0.6rem 0 0.3rem; /* Márgenes reducidos */
+font-family: 'Space Grotesk', sans-serif;
+font-weight: 600;
+}
+
+.skill-card p {
+font-size: 0.7rem; /* Tamaño de fuente reducido */
+margin: 0;
+opacity: 0.85;
+line-height: 1.3; /* Interlineado reducido */
+}
+
+.icon-wrapper {
+width: 36px; /* Reducido para móvil */
+height: 36px; /* Reducido para móvil */
+border-radius: 50%;
+background: var(--accent-gradient);
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 2px 6px rgba(109, 40, 217, 0.25); /* Sombra reducida */
+}
+
+.icon {
+width: 18px; /* Reducido para móvil */
+height: 18px; /* Reducido para móvil */
+stroke-width: 1.5;
+color: white;
+}
+
+
+
+/* Animar al Desplazarse */
+.fade-in {
+opacity: 1;
+transform: translateY(15px); /* Menos desplazamiento en móvil */
+transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Lienzo Interactivo (Demo artístico) */
+.interactive-canvas {
+width: 100%;
+height: 150px; /* Reducido para móvil */
+border-radius: 12px;
+background-color: var(--tag-bg);
+margin-bottom: 20px; /* Espacio inferior reducido */
+position: relative;
+overflow: hidden;
+cursor: pointer;
+}
+.canvas-overlay svg {
+width: 28px; /* Reducido para móvil */
+height: 28px; /* Reducido para móvil */
+margin-bottom: 6px; /* Espacio inferior reducido */
+stroke: var(--accent-color);
+}
+
+
+
+/* Estilos para el footer */
+.main-footer {
+margin-top: 60px;
+padding: 40px 20px;
+background-color: var(--bg-color);
+border-top: 1px solid var(--border-color);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 24px;
+text-align: center;
+}
+
+.main-logo-footer {
+width: 80px; /* Tamaño del logo principal en el footer */
+height: 80px;
+filter: drop-shadow(0 0 12px var(--accent-color));
+margin-bottom: 16px;
+}
+
+.footer-info {
+color: var(--text-secondary);
+font-size: 14px;
+}
+
+.footer-main-links {
+display: flex;
+gap: 24px;
+margin-top: 16px;
+}
+
+.footer-main-links a {
+color: var(--text-primary);
+text-decoration: none;
+transition: color 0.2s ease;
+}
+
+.footer-main-links a:hover {
+color: var(--accent-color);
+}
+
+.footer-social-links {
+display: flex;
+gap: 16px;
+margin-top: 16px;
+}
+
+.footer-social-links a {
+color: var(--text-secondary);
+text-decoration: none;
+transition: color 0.2s ease;
+}
+
+.footer-social-links a:hover {
+color: var(--accent-color);
+}
+
+.footer-social-links svg {
+width: 20px;
+height: 20px;
+fill: currentColor;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="creative-banner">
+            <div class="banner-content">
+                <h1 class="banner-title">Despliego Ideas con Arte y Código</h1>
+                <p class="banner-subtitle">Soluciones digitales que inspiran y funcionan</p>
+            </div>
+        </div>
+
+        <header class="header">
+            <img class="logo" src="logo/logo-skeleton.svg" alt="Logo">
+            <h1 class="header-title">Artista Digital y Desarrollador Web</h1>
+        </header>
+
+        <section class="profile">
+            <div class="profile-main">
+                <img class="avatar" src="https://avatars.githubusercontent.com/u/90852497?v=4" alt="Paul Pineda">
+                <div class="profile-info">
+                    <h1>Paul Pineda</h1>
+                    <p>Full Stack Dev & <span class="highlight">Mago del Pixel</span></p>
+                    <p>Más de una década transformando ideas en realidad digital.</p>
+                </div>
+            </div>
+
+            <p class="profile-bio">
+                Soy un <span class="highlight">constructor de mundos digitales</span> donde la precisión del código se fusiona con la fluidez del arte. Mi motor es la pasión por diseñar y desarrollar soluciones web que no solo cumplen su función, sino que también deleitan y cautivan. Especializado en el ecosistema Django y la versatilidad de React, me dedico a construir experiencias online robustas, intuitivas y con un toque distintivo que eleva tu presencia en la web.
+            </p>
+
+            <div class="profile-contact">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                    </svg>
+                    paul_noize@icloud.com
+                </div>
+            </div>
+        </section>
+
+        <div class="interactive-canvas">
+            <div class="canvas-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19l7-7-7-7M5 19l7-7-7-7"/>
+                </svg>
+                <span>Toca o arrastra para interactuar</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-target="sobre-mi">Sobre mí</button>
+            <button class="tab" data-target="proyectos">Proyectos</button>
+            <button class="tab" data-target="servicios">Servicios</button>
+            <button class="tab" data-target="contacto">Contacto</button>
+        </div>
+
+        <section id="servicios" class="services-section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 011-1 1.5 1.5 0 10-1.471-1.794l-1.962-.393A3.501 3.501 0 1113 13.355z"/>
+                </svg>
+                Mis Superpoderes Creativos
+            </h2>
+
+            <div class="skill-boxes-dark">
+                <div class="skill-card fade-in">
+                    <div class="icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <path d="M8 2v4M16 2v4"/>
+                        </svg>
+                    </div>
+                    <h3>Soluciones Web </h3>
+                    <p>Aplicaciones web únicas que combinan diseño estético y funcionalidad para empresas y creadores</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h3>Experiencias UX/UI</h3>
+                    <p>Diseño elegante e intuitivo que transforma la forma en que tus usuarios interactúan con tu marca</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 2l4 4-4 4-4-4 4-4zM12 12l4 4-4 4-4-4 4-4z"/>
+                        </svg>
+                    </div>
+                    <h3>Arte Digital & 3D</h3>
+                    <p>Creación de visuales impactantes, modelado 3D y experiencias inmersivas para tu marca.</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4l3 3"/>
+                        </svg>
+                    </div>
+                    <h3>Automatización Creativa</h3>
+                    <p>Soluciones inteligentes que combinan arte y tecnología para automatizar procesos complejos.</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 7v13h18V7l-9-5-9 5z"/>
+                        </svg>
+                    </div>
+                    <h3>Arquitectura Digital</h3>
+                    <p>Infraestructura robusta para proyectos creativos que demandan alto rendimiento</p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="icon-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M7 7h10v2H7zM7 11h6v2H7zM7 15h10v2H7z"/>
+                        </svg>
+                    </div>
+                    <h3>Ciberseguridad</h3>
+                    <p>Protección digital con interfaces elegantes y experiencias de usuario fluidas</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="services-section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 5h16v2H4zm0 6h16v2H4zm0 6h16v2H4z"/>
+                </svg>
+                Un Vistazo a mi Universo Creativo
+            </h2>
+
+            <div class="portfolio-list">
+            </div>
+        </section>
+
+        <section id="contacto" class="services-section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                Conectemos Ideas
+            </h2>
+            <p class="profile-bio">
+                ¿Tienes un proyecto en mente o simplemente quieres charlar sobre arte y tecnología? ¡Estoy abierto a nuevas colaboraciones y desafíos creativos! No dudes en ponerte en contacto.
+            </p>
+            <p class="profile-bio">
+                Puedes encontrarme en las redes listadas abajo o enviarme un correo directamente. ¡Espero tu mensaje!
+            </p>
+            <div class="profile-contact" style="margin-top: 0;">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                    </svg>
+                    paul_noize@icloud.com
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-mi" class="services-section" style="display: none;">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 16c-2.69 0-5.77 1.28-6 2h-2v-2c.23-1.72 3.31-3 6-3s5.77 1.28 6 2h2v2c-.23 1.72-3.31 3-6 3zm0-8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+                </svg>
+                Mi Historia Digital
+            </h2>
+            <p class="profile-bio">
+                Desde que mis dedos tocaron por primera vez un teclado, supe que la tecnología y la creatividad serían mis compañeras de viaje. Con más de una década inmerso en el mundo digital, he tenido el privilegio de colaborar en proyectos que fusionan la lógica del código con la magia del arte.
+            </p>
+            <p class="profile-bio">
+                Mi enfoque se centra en entender la esencia de cada proyecto para transformarla en una experiencia digital única y memorable. Creo firmemente que la tecnología es una herramienta poderosa para la expresión creativa y me apasiona explorar nuevas formas de conectar ambos mundos.
+            </p>
+            <p class="profile-bio">
+                Ya sea construyendo una plataforma web intuitiva, diseñando una interfaz cautivadora o creando visualizaciones impactantes, mi objetivo es siempre superar las expectativas y entregar soluciones que marquen la diferencia.
+            </p>
+        </section>
+        
+    </div>
+    <footer class="main-footer">
+        <img class="main-logo-footer" src="logo/logo-skeleton.svg" alt="Logo Paul Pineda">
+        <p class="footer-info">© 2025 Paul Pineda • Fusionando Arte y Código</p>
+        <div class="footer-main-links">
+            <a href="#">Proyectos</a>
+            <a href="#">Blog</a>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="footer-social-links">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576"/></svg></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M23.994 24v-.001h.006v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07v-2.185h-4.773v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243v7.801h4.965z"/><path d="M.396 7.977h4.976v16.023h-4.976z"/><path d="M2.882 0c-1.591 0-2.882 1.291-2.882 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909c-.001-1.591-1.292-2.882-2.882-2.882z"/></svg></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg></a>
+        </div>
+    </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.3 });
+
+fadeElements.forEach(el => {
+observer.observe(el);
+});
+
+const canvas = document.querySelector('.interactive-canvas');
+const overlay = document.querySelector('.canvas-overlay');
+
+if (canvas) {
+const ctx = document.createElement('canvas').getContext('2d');
+ctx.canvas.width = canvas.clientWidth;
+ctx.canvas.height = canvas.clientHeight;
+canvas.appendChild(ctx.canvas);
+
+const particles = [];
+const particleCount = 50;
+
+for (let i = 0; i < particleCount; i++) {
+particles.push({
+x: Math.random() * ctx.canvas.width,
+y: Math.random() * ctx.canvas.height,
+vx: Math.random() * 1 - 0.5,
+vy: Math.random() * 1 - 0.5,
+size: Math.random() * 5 + 1,
+color: `hsl(${Math.random() * 60 + 240}, 80%, 60%)`
+});
+}
+
+function animate() {
+ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+particles.forEach(p => {
+p.x += p.vx;
+p.y += p.vy;
+
+if (p.x < 0 || p.x > ctx.canvas.width) p.vx *= -1;
+if (p.y < 0 || p.y > ctx.canvas.height) p.vy *= -1;
+
+ctx.beginPath();
+ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+ctx.fillStyle = p.color;
+ctx.fill();
+});
+
+particles.forEach((p1, i) => {
+particles.slice(i + 1).forEach(p2 => {
+const dx = p1.x - p2.x;
+const dy = p1.y - p2.y;
+const dist = Math.sqrt(dx * dx + dy * dy);
+
+if (dist < 80) {
+ctx.beginPath();
+ctx.moveTo(p1.x, p1.y);
+ctx.lineTo(p2.x, p2.y);
+ctx.strokeStyle = `rgba(109, 40, 217, ${0.2 - dist/400})`;
+ctx.lineWidth = 0.5;
+ctx.stroke();
+}
+});
+});
+
+requestAnimationFrame(animate);
+}
+
+let isActive = false;
+
+canvas.addEventListener('click', () => {
+if (!isActive) {
+animate();
+isActive = true;
+overlay.style.opacity = '0';
+}
+});
+
+canvas.addEventListener('mousemove', (e) => {
+if (isActive) {
+const rect = canvas.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+
+particles.push({
+x: x,
+y: y,
+vx: (Math.random() - 0.5) * 2,
+vy: (Math.random() - 0.5) * 2,
+size: Math.random() * 4 + 2,
+color: `hsl(${Math.random() * 60 + 240}, 80%, 60%)`
+});
+
+if (particles.length > particleCount + 20) {
+particles.shift();
+}
+}
+});
+
+canvas.addEventListener('touchmove', (e) => {
+if (isActive) {
+e.preventDefault();
+const rect = canvas.getBoundingClientRect();
+const touch = e.touches[0];
+const x = touch.clientX - rect.left;
+const y = touch.clientY - rect.top;
+
+particles.push({
+x: x,
+y: y,
+vx: (Math.random() - 0.5) * 2,
+vy: (Math.random() - 0.5) * 2,
+size: Math.random() * 4 + 2,
+color: `hsl(${Math.random() * 60 + 240}, 80%, 60%)`
+});
+
+if (particles.length > particleCount + 20) {
+particles.shift();
+}
+}
+}, { passive: false });
+}
+
+const tabs = document.querySelectorAll('.tab');
+const sections = {
+'sobre-mi': document.getElementById('sobre-mi'),
+'proyectos': document.getElementById('proyectos'),
+'servicios': document.getElementById('servicios'),
+'contacto': document.getElementById('contacto')
+};
+const proyectosSection = document.getElementById('proyectos');
+const portfolioListContainer = document.createElement('div');
+portfolioListContainer.classList.add('portfolio-list');
+
+const portfolioItemsData = [
+{
+title: 'Teatro Galia Lanco: Gestión de Eventos',
+description: 'Aplicación web integral diseñada para la administración eficiente de eventos, funciones, reservas y personal del Teatro Galia Lanco.',
+tags: ['Django', 'Python', 'JavaScript', 'Base de Datos'],
+image: '/api/placeholder/600/450/ театральное здание' // Placeholder relacionado
+},
+{
+title: 'Finanzas Personales: Control Inteligente',
+description: 'Página web interactiva para la gestión de finanzas personales, incluyendo seguimiento de ingresos y gastos, presupuestos personalizables y visualización de datos financieros.',
+tags: ['React', 'JavaScript', 'HTML', 'CSS', 'Visualización de Datos'],
+image: '/api/placeholder/600/450/ финансовый график' // Placeholder relacionado
+},
+{
+title: 'E-commerce Artístico: Galería Online',
+description: 'Plataforma de comercio electrónico para artistas locales, permitiendo la exhibición y venta de obras de arte, con gestión de catálogo, carrito de compras y pasarela de pago simulada.',
+tags: ['Vue.js', 'JavaScript', 'API REST', 'Diseño UI/UX'],
+image: '/api/placeholder/600/450/ художественная галерея' // Placeholder relacionado
+},
+{
+title: 'Plataforma Educativa: Cursos en Línea',
+description: 'Sitio web para la oferta y gestión de cursos en línea, con registro de usuarios, seguimiento del progreso, visualización de lecciones y sistema de evaluación básico.',
+tags: ['Node.js', 'Express', 'React', 'MongoDB'],
+image: '/api/placeholder/600/450/ онлайн образование' // Placeholder relacionado
+}
+];
+
+portfolioItemsData.forEach(item => {
+const listItem = document.createElement('div');
+listItem.classList.add('portfolio-list-item', 'fade-in');
+
+const image = document.createElement('img');
+image.src = item.image;
+image.alt = item.title;
+
+const content = document.createElement('div');
+content.classList.add('portfolio-list-content');
+
+const title = document.createElement('h3');
+title.classList.add('portfolio-list-title');
+title.textContent = item.title;
+
+const description = document.createElement('p');
+description.classList.add('portfolio-list-description');
+description.textContent = item.description;
+
+const tags = document.createElement('div');
+tags.classList.add('portfolio-list-tags');
+item.tags.forEach(tag => {
+const tagSpan = document.createElement('span');
+tagSpan.textContent = `#${tag}`;
+tags.appendChild(tagSpan);
+});
+
+const arrow = document.createElement('div');
+arrow.classList.add('portfolio-list-arrow');
+arrow.textContent = '→'; // O puedes usar un icono SVG aquí
+
+content.appendChild(title);
+content.appendChild(description);
+content.appendChild(tags);
+
+listItem.appendChild(image);
+listItem.appendChild(content);
+listItem.appendChild(arrow);
+
+portfolioListContainer.appendChild(listItem);
+});
+
+if (proyectosSection) {
+proyectosSection.innerHTML = '';
+proyectosSection.appendChild(portfolioListContainer);
+}
+
+function showSection(id) {
+for (const sectionId in sections) {
+sections[sectionId].style.display = 'none';
+}
+if (sections[id]) {
+sections[id].style.display = 'block';
+}
+}
+
+tabs.forEach(tab => {
+tab.addEventListener('click', () => {
+tabs.forEach(t => t.classList.remove('active'));
+tab.classList.add('active');
+const target = tab.getAttribute('data-target');
+showSection(target);
+});
+});
+
+const initialActiveTab = document.querySelector('.tab.active');
+if (initialActiveTab) {
+showSection(initialActiveTab.getAttribute('data-target'));
+} else {
+const firstTab = tabs[0];
+if (firstTab) {
+firstTab.classList.add('active');
+showSection(firstTab.getAttribute('data-target'));
+}
+}
+});
+</script>
+</body>
+</html>
