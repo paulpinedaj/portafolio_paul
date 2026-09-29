@@ -2909,17 +2909,67 @@
             color: var(--text);
         }
 
-        @media (max-width: 900px) {
-            .nav-tools {
-                margin-left: auto;
-            }
-        }
+/* =========================================================
+   NAV TOOLS — MOBILE
+========================================================= */
 
-        @media (max-width: 480px) {
-            .language-switch {
-                display: none;
-            }
-        }
+@media (max-width: 900px) {
+
+    .nav-tools {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+        flex: 0 0 auto;
+    }
+
+    .theme-toggle {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+    }
+
+    .language-switch {
+        display: inline-flex;
+        align-items: center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-tools {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: auto;
+    }
+
+    .theme-toggle {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+    }
+
+    .language-switch {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .language-button {
+        min-width: 30px;
+        height: 27px;
+        padding: 0 7px;
+    }
+
+}
 
         /* =====================================================
            REDUCED MOTION
