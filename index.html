@@ -3142,6 +3142,10 @@
                     </li>
 
                     <li>
+                        <a href="#blog">Blog</a>
+                    </li>
+
+                    <li>
                         <a href="#contacto">
                             Contacto
                         </a>
@@ -5960,6 +5964,349 @@ Proyecto financiado por el Ministerio de las Culturas, las Artes y el Patrimonio
         </section>
 
 
+
+
+
+
+
+
+<style>
+    
+/* =========================================================
+   BLOG · IDEAS, GUÍAS Y RECURSOS
+========================================================= */
+
+.blog-section {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.blog-header {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 65px;
+}
+
+.blog-counter {
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+.blog-list {
+    border-top: 1px solid var(--border);
+}
+
+.blog-card {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) 52px;
+    gap: 30px;
+    align-items: center;
+    padding: 38px 10px;
+    border-bottom: 1px solid var(--border);
+    transition: background .25s ease, padding .25s ease;
+}
+
+.blog-card:hover {
+    background: var(--surface);
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.blog-number {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2rem;
+    color: var(--muted-2);
+    letter-spacing: -.06em;
+}
+
+.blog-category {
+    color: var(--cyan);
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.blog-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.65rem, 3vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -.045em;
+    max-width: 800px;
+}
+
+.blog-card p {
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.8;
+    max-width: 720px;
+    margin-top: 15px;
+}
+
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.blog-tag {
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 6px 10px;
+    font-size: .68rem;
+}
+
+.blog-arrow {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    transition: background .25s ease,
+                color .25s ease,
+                transform .25s ease;
+}
+
+.blog-card:hover .blog-arrow {
+    background: var(--white);
+    color: var(--bg);
+    transform: translate(3px, -3px);
+}
+
+.blog-card:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+    .blog-header {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 35px;
+    }
+
+    .blog-card {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 16px;
+        padding: 28px 4px;
+    }
+
+    .blog-number {
+        font-size: 1.35rem;
+        align-self: start;
+    }
+
+    .blog-card h3 {
+        font-size: 1.65rem;
+    }
+
+    .blog-card p {
+        font-size: .86rem;
+    }
+
+    .blog-arrow {
+        grid-column: 2;
+        width: 42px;
+        height: 42px;
+        margin-top: 4px;
+    }
+
+    .blog-card:hover {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-card,
+    .blog-arrow {
+        transition: none;
+    }
+}
+
+
+</style>
+<!-- =========================================================
+     BLOG · IDEAS Y RECURSOS
+========================================================= -->
+
+<section class="section blog-section" id="blog">
+
+    <div class="container">
+
+        <div class="blog-header">
+
+            <div>
+                <span class="eyebrow">
+                    Blog / Recursos
+                </span>
+
+                <p class="blog-counter">
+                    03 publicaciones · Conocimiento abierto
+                </p>
+            </div>
+
+            <div>
+                <h2 class="section-title">
+                    Ideas para<br>
+                    <span style="color:var(--muted)">
+                        construir el futuro.
+                    </span>
+                </h2>
+
+                <p class="section-intro">
+                    Guías, ideas y recursos sobre inteligencia
+                    artificial, robótica, desarrollo de software
+                    y tecnologías para el futuro.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="blog-list">
+
+            <!-- ARTÍCULO 01 -->
+
+            <a
+                class="blog-card"
+                href="https://paulpinedaj.github.io/17-pilares-para-sobrevivir-a-la-era-de-robotica-IA/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Leer 17 pilares para sobrevivir a la era de la robótica y la inteligencia artificial"
+            >
+
+                <span class="blog-number">01</span>
+
+                <div class="blog-content">
+
+                    <div class="blog-category">
+                        Futuro · IA · Robótica
+                    </div>
+
+                    <h3>
+                        17 pilares para sobrevivir a la era
+                        de la robótica + IA
+                    </h3>
+
+                    <p>
+                        Una guía para reflexionar sobre los pilares
+                        estratégicos que pueden ayudar a las empresas
+                        y organizaciones a adaptarse a la
+                        transformación tecnológica.
+                    </p>
+
+                    <div class="blog-tags">
+                        <span class="blog-tag">Inteligencia artificial</span>
+                        <span class="blog-tag">Robótica</span>
+                        <span class="blog-tag">Estrategia</span>
+                    </div>
+
+                </div>
+
+                <span class="blog-arrow" aria-hidden="true">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+
+            </a>
+
+
+            <!-- ARTÍCULO 02 -->
+
+            <a
+                class="blog-card"
+                href="https://paulpinedaj.github.io/guia-django-python/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Leer la guía de Python y Django"
+            >
+
+                <span class="blog-number">02</span>
+
+                <div class="blog-content">
+
+                    <div class="blog-category">
+                        Desarrollo · Python · Django
+                    </div>
+
+                    <h3>
+                        Guía Python + Django
+                    </h3>
+
+                    <p>
+                        Un recurso de programación dedicado a Python
+                        y Django para explorar el desarrollo de
+                        aplicaciones web, sistemas digitales y
+                        proyectos de software.
+                    </p>
+
+                    <div class="blog-tags">
+                        <span class="blog-tag">Python</span>
+                        <span class="blog-tag">Django</span>
+                        <span class="blog-tag">Desarrollo web</span>
+                    </div>
+
+                </div>
+
+                <span class="blog-arrow" aria-hidden="true">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+
+            </a>
+
+
+
+
+<!-- 03 · CALENDARIO DE SIEMBRA -->
+<a
+    class="blog-card"
+    href="https://paulpinedaj.github.io/calendario-cultivo-losrios/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <span class="blog-number">03</span>
+
+    <div class="blog-card-content">
+        <span class="blog-category">
+            Agricultura · Territorio · Los Ríos
+        </span>
+
+        <h3>Calendario de Siembra · Región de Los Ríos</h3>
+
+        <p>
+            Una guía práctica para conocer cuándo sembrar verduras
+            y hortalizas en la Región de Los Ríos, con información
+            sobre germinación, cosecha, métodos de siembra y trasplante.
+        </p>
+
+        <div class="blog-tags">
+            <span class="blog-tag">Agricultura</span>
+            <span class="blog-tag">Cultivo local</span>
+            <span class="blog-tag">Chile</span>
+        </div>
+    </div>
+
+    <span class="blog-arrow" aria-hidden="true">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </span>
+</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
         <!-- =====================================================
              CONTACTO
         ====================================================== -->
@@ -6095,6 +6442,12 @@ Proyecto financiado por el Ministerio de las Culturas, las Artes y el Patrimonio
                     <a href="#perfil">
                         Perfil
                     </a>
+
+
+                    <a href="#blog">
+                    Blog
+                    </a>
+
 
                     <a href="#contacto">
                         Contacto
@@ -6555,7 +6908,92 @@ Proyecto financiado por el Ministerio de las Culturas, las Artes y el Patrimonio
                 "Do you have",
 
             "un proyecto?":
-                "a project?"
+                "a project?",
+
+
+            /* =========================
+               BLOG / RESOURCES
+            ========================== */
+
+            "Blog / Recursos":
+                "Blog / Resources",
+
+            "03 publicaciones · Conocimiento abierto":
+                "03 posts · Open knowledge",
+
+            "Ideas para":
+                "Ideas for",
+
+            "construir el futuro.":
+                "building the future.",
+
+            "Guías, ideas y recursos sobre inteligencia artificial, robótica, desarrollo de software y tecnologías para el futuro.":
+                "Guides, ideas, and resources on artificial intelligence, robotics, software development, and future technologies.",
+
+
+            /* =========================
+               BLOG · ARTÍCULO 01
+            ========================== */
+
+            "Futuro · IA · Robótica":
+                "Future · AI · Robotics",
+
+            "17 pilares para sobrevivir a la era de la robótica + IA":
+                "17 pillars for surviving the age of robotics + AI",
+
+            "Una guía para reflexionar sobre los pilares estratégicos que pueden ayudar a las empresas y organizaciones a adaptarse a la transformación tecnológica.":
+                "A guide to the strategic pillars that can help companies and organizations adapt to technological transformation.",
+
+            "Inteligencia artificial":
+                "Artificial intelligence",
+
+            "Robótica":
+                "Robotics",
+
+            "Estrategia":
+                "Strategy",
+
+
+            /* =========================
+               BLOG · ARTÍCULO 02
+            ========================== */
+
+            "Desarrollo · Python · Django":
+                "Development · Python · Django",
+
+            "Guía Python + Django":
+                "Python + Django Guide",
+
+            "Un recurso de programación dedicado a Python y Django para explorar el desarrollo de aplicaciones web, sistemas digitales y proyectos de software.":
+                "A programming resource focused on Python and Django, exploring web application development, digital systems, and software projects.",
+
+            "Desarrollo web":
+                "Web development",
+
+
+            /* =========================
+               BLOG · ARTÍCULO 03
+            ========================== */
+
+            "Agricultura · Territorio · Los Ríos":
+                "Agriculture · Territory · Los Ríos",
+
+            "Calendario de Siembra · Región de Los Ríos":
+                "Planting Calendar · Los Ríos Region",
+
+            "Una guía práctica para conocer cuándo sembrar verduras y hortalizas en la Región de Los Ríos, con información sobre germinación, cosecha, métodos de siembra y trasplante.":
+                "A practical guide to when to plant vegetables in the Los Ríos Region, with information on germination, harvesting, planting methods, and transplanting.",
+
+            "Agricultura":
+                "Agriculture",
+
+            "Cultivo local":
+                "Local growing",
+
+            "Chile":
+                "Chile"
+
+
 
         }
 
